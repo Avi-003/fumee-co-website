@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FUMEE & CO. - Luxury Perfumes</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+       <img src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/95ce208f-58b9-4111-a430-7def0564e183" alt="FUMEE & CO. Logo" style="height: 50px; width: auto;">
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#products">Products</a>
+            <a href="#reviews">Reviews</a>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <h2>FUMEE & CO.</h2>
+        <p style="font-size: 20px; margin: 10px 0;">Where Scent Becomes Art</p>
+        <p>Crafted Scents for Every Soul</p>
+        <p>Luxury, curated fragrances for every occasion. Discover the essence of elegance.</p>
+    </section>
+
+    <section class="products" id="products">
+        <div class="product">
+           <img src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/f3a91b7f-047a-438e-92a6-21977597dfe5" alt="Noir Essence">
+            <p>Deep, mysterious, and bold – a captivating blend for the confident man.</p>
+            <div class="price">₹1,299</div>
+            <button onclick="addToCart('Noir Essence', 1299)">Add to Cart</button>
+        </div>
+
+        <div class="product">
+            <img src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/8144d38d-330a-4c47-8437-981e283c1b94" alt="Lueur Bloom">
+            <h3>Lueur Bloom</h3>
+            <p>A fresh, radiant fragrance bursting with delicate florals and citrus zest for ladies.</p>
+            <div class="price">₹1,299</div>
+            <button onclick="addToCart('Lueur Bloom', 1299)">Add to Cart</button>
+        </div>
+
+        <div class="product">
+           <img src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/34a9d744-d349-4f4b-8b71-4f87d69eabb7" alt="Azure Mist">
+            <h3>Azure Mist</h3>
+            <p>Light, airy, and invigorating – a breezy embrace of oceanic grace, perfect for parties and unisex wear.</p>
+            <div class="price">₹1,299</div>
+            <button onclick="addToCart('Azure Mist', 1299)">Add to Cart</button>
+        </div>
+    </section>
+
+    <section class="reviews-section" id="reviews">
+        <h2>Customer Reviews</h2>
+        
+        <div class="review-form">
+            <h3 style="margin-bottom: 20px;">Share Your Experience</h3>
+            <div class="form-group">
+                <label>Your Name:</label>
+                <input type="text" id="reviewName" placeholder="Enter your name" required>
+            </div>
+            <div class="form-group">
+                <label>Rating:</label>
+                <div class="star-rating" id="starRating">
+                    <span class="star" onclick="setRating(1)">★</span>
+                    <span class="star" onclick="setRating(2)">★</span>
+                    <span class="star" onclick="setRating(3)">★</span>
+                    <span class="star" onclick="setRating(4)">★</span>
+                    <span class="star" onclick="setRating(5)">★</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Your Review:</label>
+                <textarea id="reviewText" placeholder="Share your thoughts about our perfumes..." rows="4" required></textarea>
+            </div>
+            <button onclick="submitReview()">Submit Review</button>
+        </div>
+
+        <div class="reviews-display" id="reviewsDisplay">
+            <p style="color: #999; margin-top: 30px;">No reviews yet. Be the first to review!</p>
+        </div>
+    </section>
+
+    <footer>
+        <h3>FUMEE & CO.</h3>
+        <p>Where scent becomes art</p>
+        <p style="margin-top: 20px; font-size: 12px;">© 2025 FUMEE & CO. All rights reserved. | Crafted Scents for Every Soul</p>
+    </footer>
+
+    <div class="notification" id="notification"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
