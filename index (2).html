@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FUMEE & Co. - Crafted Scents for Every Soul</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #f7f6f4;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #fff;
+            border-bottom: 1px solid #ececec;
+            padding: 20px 10%;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #222;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        nav a {
+            color: #222;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #25D366;
+        }
+
+        .auth-btn {
+            background: #25D366;
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .auth-btn:hover {
+            background: #20a853;
+        }
+
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+            font-size: 20px;
+            transition: transform 0.3s;
+        }
+
+        .cart-icon:hover {
+            transform: scale(1.1);
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #25D366;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #efebe6 0%, #f5f1ed 100%);
+            padding: 80px 10%;
+            text-align: center;
+            color: #222;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .hero-btn {
+            background: #222;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .hero-btn:hover {
+            background: #25D366;
+        }
+
+        /* Products Section */
+        .products {
+            padding: 80px 10%;
+            background: white;
+        }
+
+        .products h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 50px;
+            letter-spacing: 1px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .product-card {
+            background: #f9f9f9;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            background: #f0f0f0;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-info h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #222;
+        }
+
+        .product-description {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .product-price {
+            font-size: 24px;
+            font-weight: bold;
+            color: #25D366;
+            margin-bottom: 15px;
+        }
+
+        .add-to-cart-btn {
+            background: #222;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+            transition: background 0.3s;
+        }
+
+        .add-to-cart-btn:hover {
+            background: #25D366;
+        }
+
+        /* Reviews Section */
+        .reviews {
+            padding: 80px 10%;
+            background: #f7f6f4;
+        }
+
+        .reviews h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 50px;
+        }
+
+        .review-form {
+            max-width: 600px;
+            margin: 0 auto 40px;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+        }
+
+        .star-rating {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .star {
+            font-size: 24px;
+            cursor: pointer;
+            color: #ddd;
+            transition: color 0.3s;
+        }
+
+        .star:hover,
+        .star.active {
+            color: #ffc107;
+        }
+
+        .submit-review-btn {
+            background: #222;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+            transition: background 0.3s;
+        }
+
+        .submit-review-btn:hover {
+            background: #25D366;
+        }
+
+        .reviews-display {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .review-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .review-stars {
+            color: #ffc107;
+            margin-bottom: 10px;
+        }
+
+        .review-text {
+            color: #666;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .review-author {
+            font-weight: bold;
+            color: #222;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 200;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-close {
+            float: right;
+            font-size: 24px;
+            cursor: pointer;
+            color: #999;
+        }
+
+        .modal-close:hover {
+            color: #222;
+        }
+
+        /* Cart Modal */
+        .cart-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .cart-table th,
+        .cart-table td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .cart-table th {
+            background: #f9f9f9;
+            font-weight: bold;
+        }
+
+        .quantity-input {
+            width: 50px;
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .remove-btn {
+            background: #ff4444;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        .remove-btn:hover {
+            background: #cc0000;
+        }
+
+        .cart-total {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 20px 0;
+            text-align: right;
+        }
+
+        .checkout-btn {
+            background: #25D366;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+
+        .checkout-btn:hover {
+            background: #20a853;
+        }
+
+        /* Checkout Form */
+        .checkout-form {
+            display: grid;
+            gap: 15px;
+        }
+
+        .checkout-form input {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+        }
+
+        /* Footer */
+        footer {
+            background: #222;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 5%;
+            }
+
+            nav {
+                gap: 15px;
+                font-size: 14px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .products {
+                padding: 40px 5%;
+            }
+
+            .product-grid {
+                gap: 20px;
+            }
+
+            .reviews {
+                padding: 40px 5%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">🌸 FUMEE & CO.</div>
+        <nav>
+            <a href="#products">Perfumes</a>
+            <a href="#reviews">Reviews</a>
+            <a href="#contact">Contact</a>
+            <div class="cart-icon" onclick="openCart()">
+                🛒
+                <span class="cart-count" id="cartCount">0</span>
+            </div>
+            <button class="auth-btn" id="authBtn" onclick="openAuthModal()">Sign In</button>
+            <span id="userProfile" style="display: none; cursor: pointer;" onclick="openUserProfile()">👤 <span id="userName"></span></span>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>FUMEE & CO.</h1>
+        <p>Crafted Scents for Every Soul</p>
+        <p style="font-size: 16px; color: #888; margin-bottom: 20px;">Luxury, curated fragrances for every occasion. Discover the essence of elegance.</p>
+        <button class="hero-btn" onclick="document.getElementById('products').scrollIntoView({behavior: 'smooth'})">Explore Perfumes</button>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <h2>Our Signature Perfumes</h2>
+        <div class="product-grid" id="productGrid"></div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews" id="reviews">
+        <h2>Customer Reviews</h2>
+        
+        <div class="review-form">
+            <h3 style="margin-bottom: 20px;">Share Your Experience</h3>
+            <div class="form-group">
+                <label>Your Name</label>
+                <input type="text" id="reviewerName" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+                <label>Rating</label>
+                <div class="star-rating" id="starRating"></div>
+            </div>
+            <div class="form-group">
+                <label>Your Review</label>
+                <textarea id="reviewText" rows="4" placeholder="Share your thoughts..." required></textarea>
+            </div>
+            <button class="submit-review-btn" onclick="submitReview()">Post Review</button>
+        </div>
+
+        <div class="reviews-display" id="reviewsDisplay"></div>
+    </section>
+
+    <!-- Cart Modal -->
+    <div class="modal" id="cartModal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeCart()">&times;</span>
+            <h2>Shopping Cart</h2>
+            <table class="cart-table" id="cartTable" style="display: none;">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Qty</th>
+                        <th>Total</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="cartBody"></tbody>
+            </table>
+            <div id="emptyCart" style="text-align: center; padding: 40px; color: #999;">
+                Your cart is empty
+            </div>
+            <div class="cart-total" id="cartTotal"></div>
+            <button class="checkout-btn" onclick="proceedToCheckout()">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <!-- Auth Modal (OTP Login/Signup) -->
+    <div class="modal" id="authModal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeAuthModal()">&times;</span>
+            <h2>Create Your Profile</h2>
+            
+            <!-- Phone Input Step -->
+            <div id="phoneStep">
+                <div class="form-group">
+                    <label>Enter Your Phone Number</label>
+                    <input type="tel" id="phoneNumber" placeholder="+91 XXXXXXXXXX" required>
+                </div>
+                <button class="checkout-btn" onclick="sendOTP()">Send OTP</button>
+            </div>
+
+            <!-- OTP Verification Step -->
+            <div id="otpStep" style="display: none;">
+                <p style="color: #666; margin-bottom: 15px;">Enter the 6-digit OTP sent to <strong id="displayPhone"></strong></p>
+                <div class="form-group">
+                    <label>OTP</label>
+                    <input type="text" id="otpCode" maxlength="6" placeholder="000000" required>
+                </div>
+                <button class="checkout-btn" onclick="verifyOTP()">Verify OTP</button>
+                <button class="checkout-btn" style="background: #999; margin-top: 10px;" onclick="resendOTP()">Resend OTP</button>
+            </div>
+
+            <!-- User Details Step -->
+            <div id="detailsStep" style="display: none;">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" id="fullName" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <label>Email (Optional)</label>
+                    <input type="email" id="userEmail" placeholder="your@email.com">
+                </div>
+                <button class="checkout-btn" onclick="completeProfile()">Complete Profile</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- User Profile Modal -->
+    <div class="modal" id="userProfileModal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeUserProfile()">&times;</span>
+            <h2>My Profile</h2>
+            <div style="background: #f9f9f9; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+                <p><strong>Name:</strong> <span id="profileName"></span></p>
+                <p><strong>Phone:</strong> <span id="profilePhone"></span></p>
+                <p><strong>Email:</strong> <span id="profileEmail"></span></p>
+                <p><strong>Member Since:</strong> <span id="memberSince"></span></p>
+            </div>
+            <button class="checkout-btn" style="background: #ff4444; width: 100%;" onclick="logout()">Logout</button>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div class="modal" id="checkoutModal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeCheckout()">&times;</span>
+            <h2>Checkout</h2>
+            <form class="checkout-form" onsubmit="processPayment(event)">
+                <input type="text" id="customerName" placeholder="Full Name" required>
+                <input type="email" id="customerEmail" placeholder="Email" required>
+                <input type="tel" id="customerPhone" placeholder="Phone Number" required>
+                <input type="text" id="customerAddress" placeholder="Shipping Address" required>
+                <input type="text" id="customerCity" placeholder="City" required>
+                <input type="text" id="customerZip" placeholder="ZIP Code" required>
+                <div style="background: #f9f9f9; padding: 15px; border-radius: 4px; margin: 15px 0;">
+                    <strong>Total Amount: ₹<span id="checkoutTotal">0</span></strong>
+                </div>
+                <button type="submit" class="checkout-btn">Pay with Razorpay</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 FUMEE & CO. All rights reserved. | Crafted Scents for Every Soul</p>
+        <p>Contact: contact@fumeeco.com | +91 XXXXX XXXXX</p>
+    </footer>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js"></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+    <script>
+        // Firebase Configuration (UPDATED WITH CORRECT CONFIG)
+        const firebaseConfig = {
+            apiKey: "AIzaSyBx8IXRSINtVU0MhPMWBBGJF9z_q11zyis",
+            authDomain: "fumee-co-c30c5.firebaseapp.com",
+            projectId: "fumee-co-c30c5",
+            storageBucket: "fumee-co-c30c5.firebasestorage.app",
+            messagingSenderId: "858739856800",
+            appId: "1:858739856800:web:6a00ba69bc2650305dc0c5",
+            databaseURL: "https://fumee-co-c30c5-default-rtdb.firebaseio.com"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+        const database = firebase.database();
+
+        // Products Data
+        const products = [
+            {
+                id: 1,
+                name: "Noir Essence",
+                description: "Deep, mysterious, and bold – a captivating blend for the confident man.",
+                price: 1299,
+                image: "https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/f3a91b7f-047a-438e-92a6-21977597dfe5"
+            },
+            {
+                id: 2,
+                name: "Lueur Bloom",
+                description: "A fresh, radiant fragrance bursting with delicate florals and citrus zest for ladies.",
+                price: 1299,
+                image: "https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/8144d38d-330a-4c47-8437-981e283c1b94"
+            },
+            {
+                id: 3,
+                name: "Azure Mist",
+                description: "Light, airy, and invigorating – a breezy embrace of oceanic grace, perfect for parties and unisex wear.",
+                price: 1299,
+                image: "https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/34a9d744-d349-4f4b-8b71-4f87d69eabb7"
+            }
+        ];
+
+        // Cart Management
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        let selectedRating = 0;
+        let currentUser = JSON.parse(localStorage.getItem('currentUser')) || null;
+        let otpVerified = false;
+        let tempPhone = '';
+
+        // OTP Authentication Functions
+        function openAuthModal() {
+            document.getElementById('authModal').classList.add('active');
+            document.getElementById('phoneStep').style.display = 'block';
+            document.getElementById('otpStep').style.display = 'none';
+            document.getElementById('detailsStep').style.display = 'none';
+        }
+
+        function closeAuthModal() {
+            document.getElementById('authModal').classList.remove('active');
+            document.getElementById('phoneStep').style.display = 'block';
+            document.getElementById('otpStep').style.display = 'none';
+            document.getElementById('detailsStep').style.display = 'none';
+            otpVerified = false;
+        }
+
+        function sendOTP() {
+            const phone = document.getElementById('phoneNumber').value.trim();
+            if (!phone || phone.length < 10) {
+                alert('Please enter a valid phone number');
+                return;
+            }
+            tempPhone = phone;
+            // Generate random OTP (in production, send via SMS service)
+            const otp = Math.floor(100000 + Math.random() * 900000).toString();
+            localStorage.setItem('tempOTP', otp);
+            console.log('OTP for testing:', otp);
+            alert('OTP sent! (For testing, check console: ' + otp + ')');
+            document.getElementById('displayPhone').textContent = phone;
+            document.getElementById('phoneStep').style.display = 'none';
+            document.getElementById('otpStep').style.display = 'block';
+        }
+
+        function verifyOTP() {
+            const enteredOTP = document.getElementById('otpCode').value.trim();
+            const correctOTP = localStorage.getItem('tempOTP');
+            
+            if (enteredOTP === correctOTP) {
+                otpVerified = true;
+                document.getElementById('otpStep').style.display = 'none';
+                document.getElementById('detailsStep').style.display = 'block';
+            } else {
+                alert('Invalid OTP. Please try again.');
+            }
+        }
+
+        function resendOTP() {
+            const otp = Math.floor(100000 + Math.random() * 900000).toString();
+            localStorage.setItem('tempOTP', otp);
+            console.log('New OTP for testing:', otp);
+            alert('OTP resent! (For testing, check console: ' + otp + ')');
+            document.getElementById('otpCode').value = '';
+        }
+
+        function completeProfile() {
+            if (!otpVerified) {
+                alert('Please verify OTP first');
+                return;
+            }
+            
+            const fullName = document.getElementById('fullName').value.trim();
+            const email = document.getElementById('userEmail').value.trim();
+            
+            if (!fullName) {
+                alert('Please enter your name');
+                return;
+            }
+
+            currentUser = {
+                phone: tempPhone,
+                name: fullName,
+                email: email,
+                createdAt: new Date().toISOString()
+            };
+
+            // Save user profile to Firebase
+            database.ref('users').child(tempPhone).set(currentUser);
+            localStorage.setItem('currentUser', JSON.stringify(currentUser));
+
+            updateAuthUI();
+            closeAuthModal();
+            alert('Profile created successfully!');
+        }
+
+        function updateAuthUI() {
+            if (currentUser) {
+                document.getElementById('authBtn').style.display = 'none';
+                document.getElementById('userProfile').style.display = 'flex';
+                document.getElementById('userName').textContent = currentUser.name.split(' ')[0];
+            } else {
+                document.getElementById('authBtn').style.display = 'block';
+                document.getElementById('userProfile').style.display = 'none';
+            }
+        }
+
+        function openUserProfile() {
+            if (!currentUser) return;
+            document.getElementById('profileName').textContent = currentUser.name;
+            document.getElementById('profilePhone').textContent = currentUser.phone;
+            document.getElementById('profileEmail').textContent = currentUser.email || 'Not added';
+            document.getElementById('memberSince').textContent = new Date(currentUser.createdAt).toLocaleDateString();
+            document.getElementById('userProfileModal').classList.add('active');
+        }
+
+        function closeUserProfile() {
+            document.getElementById('userProfileModal').classList.remove('active');
+        }
+
+        function logout() {
+            currentUser = null;
+            localStorage.removeItem('currentUser');
+            updateAuthUI();
+            closeUserProfile();
+            alert('Logged out successfully!');
+        }
+
+        function renderProducts() {
+            const productGrid = document.getElementById('productGrid');
+            productGrid.innerHTML = products.map(product => `
+                <div class="product-card">
+                    <img src="${product.image}" alt="${product.name}" class="product-image">
+                    <div class="product-info">
+                        <h3>${product.name}</h3>
+                        <p class="product-description">${product.description}</p>
+                        <p class="product-price">₹${product.price}</p>
+                        <button class="add-to-cart-btn" onclick="addToCart(${product.id}, '${product.name}', ${product.price})">Add to Cart</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function addToCart(id, name, price) {
+            const existingItem = cart.find(item => item.id === id);
+            if (existingItem) {
+                existingItem.quantity++;
+            } else {
+                cart.push({ id, name, price, quantity: 1 });
+            }
+            saveCart();
+            updateCartCount();
+            alert(`${name} added to cart!`);
+        }
+
+        function removeFromCart(id) {
+            cart = cart.filter(item => item.id !== id);
+            saveCart();
+            updateCartCount();
+            renderCart();
+        }
+
+        function updateQuantity(id, quantity) {
+            const item = cart.find(item => item.id === id);
+            if (item) {
+                item.quantity = Math.max(1, parseInt(quantity));
+                saveCart();
+                renderCart();
+            }
+        }
+
+        function saveCart() {
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+
+        function updateCartCount() {
+            document.getElementById('cartCount').textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+        }
+
+        function renderCart() {
+            if (cart.length === 0) {
+                document.getElementById('cartTable').style.display = 'none';
+                document.getElementById('emptyCart').style.display = 'block';
+                document.getElementById('cartTotal').innerHTML = '';
+                return;
+            }
+
+            document.getElementById('cartTable').style.display = 'table';
+            document.getElementById('emptyCart').style.display = 'none';
+
+            const cartBody = document.getElementById('cartBody');
+            cartBody.innerHTML = cart.map(item => `
+                <tr>
+                    <td>${item.name}</td>
+                    <td>₹${item.price}</td>
+                    <td><input type="number" class="quantity-input" value="${item.quantity}" onchange="updateQuantity(${item.id}, this.value)"></td>
+                    <td>₹${item.price * item.quantity}</td>
+                    <td><button class="remove-btn" onclick="removeFromCart(${item.id})">Remove</button></td>
+                </tr>
+            `).join('');
+
+            const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+            document.getElementById('cartTotal').textContent = `Total: ₹${total}`;
+            document.getElementById('checkoutTotal').textContent = total;
+        }
+
+        function openCart() {
+            renderCart();
+            document.getElementById('cartModal').classList.add('active');
+        }
+
+        function closeCart() {
+            document.getElementById('cartModal').classList.remove('active');
+        }
+
+        function proceedToCheckout() {
+            if (cart.length === 0) {
+                alert('Cart is empty!');
+                return;
+            }
+            closeCart();
+            document.getElementById('checkoutModal').classList.add('active');
+        }
+
+        function closeCheckout() {
+            document.getElementById('checkoutModal').classList.remove('active');
+        }
+
+        function processPayment(event) {
+            event.preventDefault();
+
+            const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+            const customerName = document.getElementById('customerName').value;
+            const customerEmail = document.getElementById('customerEmail').value;
+            const customerPhone = document.getElementById('customerPhone').value;
+            const customerAddress = document.getElementById('customerAddress').value;
+            const customerCity = document.getElementById('customerCity').value;
+            const customerZip = document.getElementById('customerZip').value;
+
+            // Save order to Firebase first
+            const orderId = Date.now();
+            const orderData = {
+                orderId,
+                customer: {
+                    name: customerName,
+                    email: customerEmail,
+                    phone: customerPhone,
+                    address: customerAddress,
+                    city: customerCity,
+                    zip: customerZip
+                },
+                items: cart,
+                total,
+                status: 'pending',
+                timestamp: new Date().toISOString()
+            };
+
+            database.ref('orders').child(orderId).set(orderData);
+
+            // Razorpay Integration
+            const options = {
+                key: "YOUR_RAZORPAY_KEY_ID", // Replace with your Razorpay Key ID
+                amount: total * 100, // Amount in paise
+                currency: "INR",
+                name: "FUMEE & CO.",
+                description: "Premium Perfume Purchase",
+                order_id: orderId,
+                prefill: {
+                    name: customerName,
+                    email: customerEmail,
+                    contact: customerPhone
+                },
+                handler: function(response) {
+                    // Payment successful
+                    database.ref('orders').child(orderId).update({
+                        status: 'completed',
+                        paymentId: response.razorpay_payment_id
+                    });
+                    cart = [];
+                    saveCart();
+                    updateCartCount();
+                    closeCheckout();
+                    alert('Payment successful! Order ID: ' + orderId);
+                    window.location.reload();
+                },
+                modal: {
+                    ondismiss: function() {
+                        alert('Payment cancelled');
+                    }
+                }
+            };
+
+            const rzp = new Razorpay(options);
+            rzp.open();
+        }
+
+        // Reviews Management
+        function renderStarRating() {
+            const starRating = document.getElementById('starRating');
+            starRating.innerHTML = Array(5).fill(0).map((_, i) => `
+                <span class="star" data-value="${i + 1}" onclick="selectRating(${i + 1})">★</span>
+            `).join('');
+        }
+
+        function selectRating(rating) {
+            selectedRating = rating;
+            document.querySelectorAll('.star').forEach((star, i) => {
+                if (i < rating) {
+                    star.classList.add('active');
+                } else {
+                    star.classList.remove('active');
+                }
+            });
+        }
+
+        function submitReview() {
+            const name = document.getElementById('reviewerName').value.trim();
+            const text = document.getElementById('reviewText').value.trim();
+
+            if (!name || !text || selectedRating === 0) {
+                alert('Please fill all fields and select a rating!');
+                return;
+            }
+
+            const reviewData = {
+                name,
+                text,
+                rating: selectedRating,
+                timestamp: new Date().toISOString()
+            };
+
+            database.ref('reviews').push(reviewData);
+
+            document.getElementById('reviewerName').value = '';
+            document.getElementById('reviewText').value = '';
+            selectedRating = 0;
+            renderStarRating();
+            alert('Review submitted! Thank you!');
+            loadReviews();
+        }
+
+        function loadReviews() {
+            database.ref('reviews').limitToLast(10).on('value', function(snapshot) {
+                const reviewsDisplay = document.getElementById('reviewsDisplay');
+                reviewsDisplay.innerHTML = '';
+                snapshot.forEach(function(childSnapshot) {
+                    const data = childSnapshot.val();
+                    reviewsDisplay.innerHTML += `
+                        <div class="review-card">
+                            <div class="review-stars">${'★'.repeat(data.rating)}${'☆'.repeat(5 - data.rating)}</div>
+                            <p class="review-text">"${data.text}"</p>
+                            <p class="review-author">- ${data.name}</p>
+                        </div>
+                    `;
+                });
+            });
+        }
+
+        // Initialize
+        renderProducts();
+        updateCartCount();
+        renderStarRating();
+        loadReviews();
+        updateAuthUI();
+    </script>
+</body>
+</html>
